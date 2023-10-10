@@ -1,6 +1,10 @@
 package golearn
 
-import "testing"
+import (
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+	"testing"
+)
 
 func TestDefaultEngine_MaxSpeed(t *testing.T) {
 	tests := []struct {
@@ -46,6 +50,47 @@ type FakeEngine struct{}
 
 func (e FakeEngine) MaxSpeed() int {
 	return 5
+}
+
+type MockEngine struct {
+	mock.Mock
+}
+
+func (m MockEngine) MaxSpeed() int {
+	args := m.Called()
+	return args.Get(0).(int)
+}
+
+func TestCar_Speed_WithMock(t *testing.T) {
+
+	t.Run("just called once", func(t *testing.T) {
+		mock := new(MockEngine)
+		car := Car{
+			Speeder: mock,
+		}
+
+		mock.On("MaxSpeed").Return(9).Times(1)
+
+		speed := car.Speed()
+		assert.Equal(t, 20, speed)
+
+		mock.AssertExpectations(t)
+	})
+
+	t.Run("just called 3 times", func(t *testing.T) {
+		mock := new(MockEngine)
+		car := Car{
+			Speeder: mock,
+		}
+
+		mock.On("MaxSpeed").Return(60).Times(3)
+
+		speed := car.Speed()
+		assert.Equal(t, 60, speed)
+
+		mock.AssertExpectations(t)
+	})
+
 }
 
 func TestCar_Speed(t *testing.T) {
