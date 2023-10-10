@@ -18,3 +18,24 @@ Requirements :
 • Popping from an empty stack  return an error: ErrNoSuchElement
 
 • Peeking into an empty stack  return an error: ErrNoSuchElement
+
+
+====================================================================
+-
+
+Automated Testing Sample Implementation :
+=
+
+✅ Apa itu Dependency Injection
+
+✅ Testing dengan Dependency Injection
+
+✅ Test Double
+
+✅ Menulis Test Dengan Fake
+
+✅ Menulis Test Dengan Mock
+
+✅ Testing Third Party Library
+
+✅ Testing HTTP API
