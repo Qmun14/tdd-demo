@@ -17,5 +17,28 @@ type Node struct {
 }
 
 func IsBinarySearchTree(node *Node) bool {
-	return false
+
+	// if node.left != nil && node.left.Val >= node.Val {
+	// 	return false
+	// }
+
+	// if node.Right != nil && node.Right.Val <= node.Val {
+	// 	return false
+	// }
+
+	min := -9999
+	max := 9999
+	return isBinarySearchTree(node, min, max)
+}
+
+func isBinarySearchTree(root *Node, min, max int) bool {
+	if root == nil {
+		return true
+	}
+
+	if root.Val <= min || root.Val >= max {
+		return false
+	}
+
+	return isBinarySearchTree(root.left, min, root.Val) && isBinarySearchTree(root.Right, root.Val, max)
 }
