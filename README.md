@@ -18,3 +18,29 @@ Requirements :
 • Popping from an empty stack  return an error: ErrNoSuchElement
 
 • Peeking into an empty stack  return an error: ErrNoSuchElement
+
+`
+`
+
+---
+
+Hash Table Implementation With TDD
+==
+
+`Requirements : 
+`
+```
+✅ A HashTable is not empty on construction
+
+✅ A HashTable has size ArraySize on construction
+
+✅ Can Insert a value which is string to an HashTable
+
+✅ If one Insert x then search, the value returned true
+
+✅ Cannot Insert a value which is already exist an HashTable, and  return an error ErrDataExist
+
+✅ If one Delete the value is x, and after that the value should not be exist again in The hashtable
+
+✅ If one Delete the value that doesnt exist in HashTable, and  return an error  ErrNoSuchElement
+```
