@@ -18,3 +18,19 @@ Requirements :
 • Popping from an empty stack  return an error: ErrNoSuchElement
 
 • Peeking into an empty stack  return an error: ErrNoSuchElement
+
+`
+`
+
+---
+Trie Implementation With TDD
+===
+
+`Requirements : `
+```
+✅ Should return not nil Trie on construction and return an empty root
+
+✅ Should can insert a word to a trie
+
+✅ Should can search a word from a trie and return true if exist and false if doesn't exist
+```
